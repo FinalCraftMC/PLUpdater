@@ -10,3 +10,8 @@ This Core-Mod will create a folder called PLUpdater in your server directory, to
 ###### How it works?
 
 This mod will look inside the folder "PLUpdates" and get the bukkit-plugin-name of every bukkit .jar that is inside it, and then search in the plugins folder for the jar with the same plugin-identifier to delete it and move the new one to the new location!
+
+
+# Important !!!
+
+This mod does not work on WINDOWS!
