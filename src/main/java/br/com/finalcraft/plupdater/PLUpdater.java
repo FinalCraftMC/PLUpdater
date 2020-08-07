@@ -1,6 +1,5 @@
 package br.com.finalcraft.plupdater;
 
-import br.com.finalcraft.plupdater.data.ModJar;
 import br.com.finalcraft.plupdater.data.PluginJar;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 import org.apache.commons.io.FileUtils;
@@ -15,7 +14,6 @@ public class PLUpdater implements IFMLLoadingPlugin {
 
     private final File updatesFolder;
     private final File pluginsFolder;
-    private final File modsFolder;
 
     private File getOrCreateFolder(String folderName){
         File file = new File(folderName);
@@ -87,21 +85,6 @@ public class PLUpdater implements IFMLLoadingPlugin {
             }
         }
         return pluginJars;
-    }
-
-    private List<ModJar> getAllModsFromDirectory(File directory){
-        List<ModJar> modJars = new ArrayList<>();
-        for (File modFile : FileUtils.listFiles(directory, new String[]{"jar"}, false)) {
-            try {
-                ModJar modJar = new ModJar(modFile);
-                if (modJar.getModIDentifier() != null){
-                    modJars.add(modJar);
-                }
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-        return modJars;
     }
 
     @Override
